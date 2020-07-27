@@ -116,7 +116,7 @@ a:active {
 
 .nav .nav-link {
   display: block;
-  padding: 0.5rem, 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .nav .nav-link::before {
@@ -126,7 +126,7 @@ a:active {
   left: 0;
   background-color: var(--color-white);
   width: 0;
-  height: 20%;
+  height: 0.2rem;
 }
 
 .nav .nav-item:hover .nav-link::before {
