@@ -868,6 +868,7 @@ textarea:focus {
   font-style: italic;
   font-size: var(--font-size-small);
 }
+
 /* Form group
 ============================= */
 
@@ -881,6 +882,7 @@ textarea:focus {
   background-color: var(--color-light-grey);
   transition: 0.3s;
 }
+
 /* Form field
 ============================= */
 
