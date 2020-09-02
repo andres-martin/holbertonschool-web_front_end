@@ -165,7 +165,7 @@ header .menu-btn {
     display: none;
   }
 }
-/**** menu btn *****/
+/**** menu button *****/
 .menu-btn:checked ~ .navbar-menu {
   display: block;
 }
@@ -185,7 +185,7 @@ header .menu-btn {
   top: 0;
 }
 
-/* ------------What we do section -------------*/
+/* ------------ What we do section -------------*/
 .service-container {
   display: flex;
   margin: 110px 0;
@@ -206,7 +206,6 @@ header .menu-btn {
   color: #ff6565;
 }
 
-/* ------------What we do section -------------*/
 .section-results {
   background-image: url(./images/headphones_hero_2.jpg);
   background-attachment: fixed;
@@ -228,7 +227,7 @@ header .menu-btn {
   margin-top: 110px;
 }
 
-/* ------------contact section -------------*/
+/* ------------ Contact section -------------*/
 .section-contact form {
   display: flex;
   flex-direction: column;
@@ -255,7 +254,6 @@ input:focus {
   border-color: #ff6565;
 }
 
-/* ------------contact section -------------*/
 footer {
   background-color: #071629;
   height: 249px;
@@ -288,7 +286,7 @@ footer .copyrigth h4 {
   margin: 75px 0 0 0;
 }
 
-/* ------------ animation section -------------*/
+/* ------------ Animation section -------------*/
 .service-item {
   z-index: 0;
   transition: transform 1s;
