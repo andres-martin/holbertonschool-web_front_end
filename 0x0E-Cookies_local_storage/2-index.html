@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies</title>
+  </head>
+  <body>
+    <h1>Login to the website</h1>
+    <form>
+      <input
+        type="text"
+        name="firstname"
+        id="firstname"
+        placeholder="Firstname"
+      />
+      <input type="text" name="email" id="email" placeholder="Email" />
+      <button onclick="setCookies()">Log me in</button>
+    </form>
+    <h1>Cookies</h1>
+    <button onclick="showCookies()">Show the cookies</button>
+    <script type="application/javascript">
+      const setCookies = () => {
+        const firstName = document.getElementById("firstname").value;
+        const email = document.getElementById("email").value;
+        const date = new Date();
+        date.setTime(date.getTime() + 10 * 24 * 60 * 60 * 1000);
+        const expirationDate = "expires=" + date.toUTCString();
+
+        document.cookie = `firstname=${firstName};` + expirationDate;
+        document.cookie = `email=${email};` + expirationDate;
+      };
+
+      const showCookies = () => {
+        const newElement = document.createElement("p");
+        newElement.innerText = `Email: ${getCookie(
+          "email"
+        )} - Firstname: ${getCookie("firstname")}`;
+
+        document.body.appendChild(newElement);
+      };
+
+      const getCookie = (name) => {
+        const match = document.cookie.match(
+          new RegExp("(^| )" + name + "=([^;]+)")
+        );
+        if (match) return match[2];
+        return "";
+      };
+    </script>
+  </body>
+</html>
