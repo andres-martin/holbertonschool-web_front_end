@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies</title>
+  </head>
+  <body>
+    <div id="form">
+      <h2>Login to the website</h2>
+      <input
+        type="text"
+        name="firstname"
+        id="firstname"
+        placeholder="Firstname"
+      />
+      <input type="text" name="email" id="email" placeholder="Email" />
+      <button onclick="setCookies()">Log me in</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script type="application/javascript">
+      const setCookies = () => {
+        const firstName = document.getElementById("firstname").value;
+        const email = document.getElementById("email").value;
+
+        Cookies.set("firstname", firstName, { expires: 10 });
+        Cookies.set("email", email, { expires: 10 });
+
+        showWelcomeMessageOrForm();
+      };
+
+      const showForm = () => {
+        const welcomeElement = document.getElementById("welcome");
+        if (welcomeElement) welcomeElement.remove();
+
+        const form = document.getElementById("form");
+        form.style.display = "block";
+      };
+
+      const hideForm = () => {
+        const form = document.getElementById("form");
+        form.style.display = "none";
+      };
+
+      const deleteCookiesAndShowForm = () => {
+        Cookies.remove("firstname");
+        Cookies.remove("email");
+        showForm();
+      };
+
+      const showWelcomeMessageOrForm = () => {
+        if (Cookies.get("email").length === 0) showForm();
+        else {
+          hideForm();
+
+          const newElement = document.createElement("h1");
+          newElement.setAttribute("id", "welcome");
+          const content = document.createTextNode(
+            `Welcome ${Cookies.get("firstname")} `
+          );
+          newElement.appendChild(content);
+          newElement.innerHTML += `<a href="javascript:deleteCookiesAndShowForm()" style="margin-left: 10px; font-style: italic; font-weight: normal; text-decoration: none;">(logout)</a>`;
+
+          document.body.appendChild(newElement);
+        }
+      };
+      window.onload = showWelcomeMessageOrForm;
+    </script>
+  </body>
+</html>
